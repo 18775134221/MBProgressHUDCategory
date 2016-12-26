@@ -1,0 +1,6 @@
+framework module Pods_TestMBProgressHUD {
+  umbrella header "Pods-TestMBProgressHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}

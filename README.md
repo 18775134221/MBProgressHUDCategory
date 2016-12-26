@@ -5,10 +5,9 @@ MBProgressHUD分类文件
 
 /*
  * @brief 显示加载提示框
- 
  */
  
- ···
+   ···
 -(void)showHudHint:(NSString *)hint {
 
     [self hideHud];
@@ -18,7 +17,7 @@ MBProgressHUD分类文件
     [HUD showAnimated:YES];
     [self setHUD:HUD];
 }
-···
+  ···
 
 # 二、Toast 弹窗
 

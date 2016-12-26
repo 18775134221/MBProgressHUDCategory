@@ -1,3 +1,6 @@
+MBProgressHUD分类文件
+===================
+
 # 一、Loading指示器
 
 /*
@@ -5,7 +8,7 @@
  
  */
  
- '''
+ ···
 -(void)showHudHint:(NSString *)hint {
 
     [self hideHud];
@@ -15,7 +18,7 @@
     [HUD showAnimated:YES];
     [self setHUD:HUD];
 }
-end'''
+···
 
 # 二、Toast 弹窗
 

@@ -1,33 +1,29 @@
 MBProgressHUD分类文件
-===================
+====================================================
 
-# 一、Loading指示器<br>
-/* <br>
- * @brief 显示加载提示框<br>
- */<br>
-     
+# 一、Loading指示器
+`/* 
+ * @brief 显示加载提示框
+ */`
+`     
 -(void)showHudHint:(NSString *)hint {
-
     [self hideHud];
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     HUD.label.text = hint;
     [self.view addSubview:HUD];
     [HUD showAnimated:YES];
     [self setHUD:HUD];
-}
+}`
     
 
 # 二、Toast 弹窗
 
-/*
+`/*
  * @brief Toast提示窗口
  * @param hint 提示的信息
  * @param delayTime 持续的时间
- 
- */
- 
--(void)showHint:(NSString *)hint afterDelay:(NSTimeInterval)delayTime {
-
+ */`
+`-(void)showHint:(NSString *)hint afterDelay:(NSTimeInterval)delayTime {
     [self hideHud];
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];
@@ -41,4 +37,5 @@ MBProgressHUD分类文件
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:delayTime];
-}
+}`
+

@@ -5,8 +5,10 @@ MBProgressHUD分类文件
 `/* 
  * @brief 显示加载提示框
  */`
+ 
 `     
 -(void)showHudHint:(NSString *)hint {
+
     [self hideHud];
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     HUD.label.text = hint;
@@ -23,7 +25,9 @@ MBProgressHUD分类文件
  * @param hint 提示的信息
  * @param delayTime 持续的时间
  */`
+ 
 `-(void)showHint:(NSString *)hint afterDelay:(NSTimeInterval)delayTime {
+
     [self hideHud];
     //显示提示信息
     UIView *view = [[UIApplication sharedApplication].delegate window];

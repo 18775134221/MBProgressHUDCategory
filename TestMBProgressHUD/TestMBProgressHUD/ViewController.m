@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIViewController+HUD.h"
+#import "UIViewController+MBHUD.h"
 
 @interface ViewController ()
 
@@ -17,11 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    showMaskHUD(@"加载中");
+
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self showHint:@"测试数据" afterDelay:3.0];
+    //[self showHint:@"测试数据" afterDelay:3.0];
+    //hideHUD();
+    //showToastHUD(@"测试", 3);
+    //showMaskHUD(@"加载中");
+    showError(@"JIAZAICHUCUO", @"1222");
 
 }
 

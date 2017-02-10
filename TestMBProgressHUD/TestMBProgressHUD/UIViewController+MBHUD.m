@@ -69,6 +69,11 @@ void showMaskHUD(NSString *status) {
 }
 
 void hideHUD(){
+//    if (![NSThread isMainThread]) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//        });
+//    }else{
+//    }
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [MBProgressHUD hideHUDForView:window animated:YES];
 }

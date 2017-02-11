@@ -52,12 +52,16 @@
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    //ShowMessage(@"我是一个提示窗口");
+- (void) sv {
+    ShowMessage(@"我是一个提示窗口");
     //ShowSuccessStatus(@"加载中...");
     //ShowErrorStatus(@"加载中...");
     //ShowProgress(0.5);
-    ShowMaskStatus(@"123");
+    //ShowMaskStatus(@"123");
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
 
 }
 

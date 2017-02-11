@@ -16,6 +16,7 @@ static const CGFloat kProgressHudTag = 88888;
 
 #pragma mark - public Methods
 
+
 void ShowStatusHUD(UIView *contentView,NSString *status,NSString *showImageStr) {
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -68,15 +69,22 @@ void HideHUD(UIView *contentView){
 
 #pragma mark - private Methods
 
+MBProgressHUD * HUD(UIView *contentView,BOOL animationBOOL) {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:animationBOOL];
+    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+    hud.contentColor = [UIColor whiteColor];
+    hud.label.textColor = [UIColor whiteColor];
+    hud.removeFromSuperViewOnHide = YES;
+    return hud;
+}
+
 void ShowStatusHUDFunction(UIView *contentView,NSString *status,NSString *showImageStr) {
     HideHUD(contentView);
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
+    MBProgressHUD *hud = HUD(contentView,YES);
     hud.tag = kHudTag;
     UIImage *image = [[UIImage imageNamed:showImageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     hud.customView = [[UIImageView alloc]initWithImage:image];
-    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     hud.mode = MBProgressHUDModeCustomView;
-    hud.label.textColor = [UIColor whiteColor];
     hud.label.text = status;
     [hud hideAnimated:YES afterDelay:3.0];
 }
@@ -88,28 +96,23 @@ void ShowProgressHUDFunction(UIView *contentView,NSString *status,CGFloat progre
     }
     MBProgressHUD *hud = [MBProgressHUD HUDForView:contentView];
     if (!hud) {
-        hud = [MBProgressHUD showHUDAddedTo:contentView animated:NO];
+        hud = HUD(contentView,NO);
     }
     hud.tag = kProgressHudTag;
     hud.mode = MBProgressHUDModeDeterminate;
-    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     hud.userInteractionEnabled = NO;
-    hud.contentColor = [UIColor whiteColor];
     hud.label.text = status;
-    hud.label.textColor = [UIColor whiteColor];
     hud.progress = progress;
 }
 
 void ShowToastHUDFunction(UIView *contentView,NSString *status, NSTimeInterval time) {
     HideHUD(contentView);
     //显示提示信息;
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
+    MBProgressHUD *hud = HUD(contentView, YES);
     hud.tag = kHudTag;
-    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     hud.userInteractionEnabled = NO;
     hud.mode = MBProgressHUDModeText;
     hud.label.text = status;
-    hud.label.textColor = [UIColor whiteColor];
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
     [hud hideAnimated:YES afterDelay:time];
@@ -117,14 +120,10 @@ void ShowToastHUDFunction(UIView *contentView,NSString *status, NSTimeInterval t
 
 void ShowMaskHUDFunction(UIView *contentView,NSString *status) {
     HideHUD(contentView);
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
+    MBProgressHUD *hud = HUD(contentView, YES);
     hud.tag = kHudTag;
-    hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:1.0];
-    hud.contentColor = [UIColor whiteColor];
-    hud.label.textColor = [UIColor whiteColor];
     hud.userInteractionEnabled = NO;
     hud.label.text = status;
-    [hud showAnimated:YES];
 }
 
 void HideHUDFunction (UIView *contentView) {

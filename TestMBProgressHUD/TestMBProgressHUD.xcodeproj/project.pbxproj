@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03F9A4BF6C507D719EE3B800 /* Pods_TestMBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C3AEC141B7A4B323E7B3D9 /* Pods_TestMBProgressHUD.framework */; };
+		041E2E1D1E4EE6A5005FEEB3 /* MBProgressToolsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E2E1C1E4EE6A5005FEEB3 /* MBProgressToolsCenter.m */; };
+		041E2E201E4EE753005FEEB3 /* SVProgressToolsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 041E2E1F1E4EE753005FEEB3 /* SVProgressToolsCenter.m */; };
 		0438B7031E10C0200003FB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B7021E10C0200003FB54 /* main.m */; };
 		0438B7061E10C0200003FB54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B7051E10C0200003FB54 /* AppDelegate.m */; };
 		0438B7091E10C0200003FB54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B7081E10C0200003FB54 /* ViewController.m */; };
@@ -17,7 +19,6 @@
 		0438B71C1E10C0210003FB54 /* TestMBProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B71B1E10C0210003FB54 /* TestMBProgressHUDTests.m */; };
 		0438B7271E10C0210003FB54 /* TestMBProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B7261E10C0210003FB54 /* TestMBProgressHUDUITests.m */; };
 		0438B7391E10C0B50003FB54 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438B7371E10C0B50003FB54 /* UIViewController+HUD.m */; };
-		04E1687B1E4DB9D1002A2DD8 /* UIViewController+MBHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1687A1E4DB9D1002A2DD8 /* UIViewController+MBHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041E2E1B1E4EE6A5005FEEB3 /* MBProgressToolsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressToolsCenter.h; sourceTree = "<group>"; };
+		041E2E1C1E4EE6A5005FEEB3 /* MBProgressToolsCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressToolsCenter.m; sourceTree = "<group>"; };
+		041E2E1E1E4EE753005FEEB3 /* SVProgressToolsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressToolsCenter.h; sourceTree = "<group>"; };
+		041E2E1F1E4EE753005FEEB3 /* SVProgressToolsCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressToolsCenter.m; sourceTree = "<group>"; };
 		0438B6FE1E10C0200003FB54 /* TestMBProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMBProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0438B7021E10C0200003FB54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0438B7041E10C0200003FB54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,8 +61,6 @@
 		0438B7281E10C0210003FB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0438B7361E10C0B50003FB54 /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
 		0438B7371E10C0B50003FB54 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
-		04E168791E4DB9D1002A2DD8 /* UIViewController+MBHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBHUD.h"; sourceTree = "<group>"; };
-		04E1687A1E4DB9D1002A2DD8 /* UIViewController+MBHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBHUD.m"; sourceTree = "<group>"; };
 		86C3AEC141B7A4B323E7B3D9 /* Pods_TestMBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestMBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B882D09FA1D036A762AE403F /* Pods-TestMBProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMBProgressHUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestMBProgressHUD/Pods-TestMBProgressHUD.debug.xcconfig"; sourceTree = "<group>"; };
 		C86D2D56F3D002E487882741 /* Pods-TestMBProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestMBProgressHUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestMBProgressHUD/Pods-TestMBProgressHUD.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,8 +128,10 @@
 				0438B70F1E10C0200003FB54 /* LaunchScreen.storyboard */,
 				0438B7121E10C0200003FB54 /* Info.plist */,
 				0438B7011E10C0200003FB54 /* Supporting Files */,
-				04E168791E4DB9D1002A2DD8 /* UIViewController+MBHUD.h */,
-				04E1687A1E4DB9D1002A2DD8 /* UIViewController+MBHUD.m */,
+				041E2E1B1E4EE6A5005FEEB3 /* MBProgressToolsCenter.h */,
+				041E2E1C1E4EE6A5005FEEB3 /* MBProgressToolsCenter.m */,
+				041E2E1E1E4EE753005FEEB3 /* SVProgressToolsCenter.h */,
+				041E2E1F1E4EE753005FEEB3 /* SVProgressToolsCenter.m */,
 			);
 			path = TestMBProgressHUD;
 			sourceTree = "<group>";
@@ -359,11 +364,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041E2E1D1E4EE6A5005FEEB3 /* MBProgressToolsCenter.m in Sources */,
 				0438B7091E10C0200003FB54 /* ViewController.m in Sources */,
 				0438B7061E10C0200003FB54 /* AppDelegate.m in Sources */,
-				04E1687B1E4DB9D1002A2DD8 /* UIViewController+MBHUD.m in Sources */,
 				0438B7391E10C0B50003FB54 /* UIViewController+HUD.m in Sources */,
 				0438B7031E10C0200003FB54 /* main.m in Sources */,
+				041E2E201E4EE753005FEEB3 /* SVProgressToolsCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

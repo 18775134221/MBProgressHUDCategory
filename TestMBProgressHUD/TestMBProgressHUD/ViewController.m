@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "UIViewController+MBHUD.h"
+#import "MBProgressToolsCenter.h"
+#import "SVProgressToolsCenter.h"
 
 @interface ViewController ()
 
@@ -37,7 +38,7 @@
 
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void) mb {
     //[self showHint:@"测试数据" afterDelay:3.0];
     //hideHUD();
     //showToastHUD(@"测试", 3);
@@ -49,7 +50,14 @@
         self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
+}
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //ShowMessage(@"我是一个提示窗口");
+    //ShowSuccessStatus(@"加载中...");
+    //ShowErrorStatus(@"加载中...");
+    //ShowProgress(0.5);
+    ShowMaskStatus(@"123");
 
 }
 

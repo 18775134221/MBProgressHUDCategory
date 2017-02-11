@@ -1,21 +1,21 @@
 //
-//  UIViewController+MBHUD.m
+//  MBProgressToolsCenter.m
 //  TestMBProgressHUD
 //
-//  Created by MAC on 2017/2/10.
+//  Created by MAC on 2017/2/11.
 //  Copyright © 2017年 MAC. All rights reserved.
 //
 
-#import "UIViewController+MBHUD.h"
+#import "MBProgressToolsCenter.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 static const CGFloat kHudTag = 99999;
 static const CGFloat kProgressHudTag = 88888;
 
-@implementation UIViewController (MBHUD)
+@implementation MBProgressToolsCenter
+
 
 #pragma mark - public Methods
-
 
 void ShowStatusHUD(UIView *contentView,NSString *status,NSString *showImageStr) {
     if (! [NSThread isMainThread]) {
@@ -138,4 +138,6 @@ void HideHUDFunction (UIView *contentView) {
     }
     [MBProgressHUD hideHUDForView:contentView animated:YES];
 }
+
+
 @end

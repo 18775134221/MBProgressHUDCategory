@@ -10,10 +10,10 @@
 
 @interface UIViewController (MBHUD)
 
-extern void showStatusHUD(UIView *contentView,NSString *status,NSString *showImageStr);
-extern void showProgressHUD(UIView *contentView,NSString *status,CGFloat progress);
-extern void showMaskHUD(UIView *contentView,NSString *status);
-extern void showToastHUD(UIView *contentView,NSString *status,NSTimeInterval time);
-extern void hideHUD(UIView *contentView);
+extern void ShowStatusHUD(UIView *contentView,NSString *status,NSString *showImageStr);
+extern void ShowProgressHUD(UIView *contentView,NSString *status,CGFloat progress);
+extern void ShowMaskHUD(UIView *contentView,NSString *status);
+extern void ShowToastHUD(UIView *contentView,NSString *status,NSTimeInterval time);
+extern void HideHUD(UIView *contentView);
 
 @end

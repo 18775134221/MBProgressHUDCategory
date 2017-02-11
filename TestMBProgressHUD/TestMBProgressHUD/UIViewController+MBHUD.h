@@ -10,8 +10,8 @@
 
 @interface UIViewController (MBHUD)
 
-extern void showError(NSString *status,NSString *showImageStr);
-extern void showSuccess(NSString *status,NSString *showImageStr);
+extern void showStatusHUD(NSString *status,NSString *showImageStr);
+extern void showProgressHUD(NSString *status,CGFloat progress);
 extern void showMaskHUD(NSString *status);
 extern void showToastHUD(NSString *status,NSTimeInterval time);
 extern void hideHUD();

@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIViewController+HUD.h"
 #import "UIViewController+MBHUD.h"
 
 @interface ViewController ()
@@ -28,9 +27,9 @@
 - (void) test {
     self.progress += 0.01;
     if (self.progress < 1.0) {
-        showProgressHUD(@"加载中", self.progress);
+        showProgressHUD(self.view,@"加载中", self.progress);
     }else if(self.progress >= 1.0) {
-        hideHUD();
+        hideHUD(self.view);
         [self.timer invalidate];
         self.timer = nil;
         self.progress = 0;
@@ -44,15 +43,13 @@
     //showToastHUD(@"测试", 3);
     //showMaskHUD(@"加载中...");
     //hideHUD();
-    showMaskHUD(@"加载中");
-    hideHUD();
+    showMaskHUD(self.view,@"加载中");
+    hideHUD(self.view);
     if (! self.timer) {
         self.timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(test) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop]addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
 
-
-    //showError(@"JIAZAICHUCUO", @"1222");
 
 }
 

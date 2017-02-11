@@ -244,6 +244,7 @@
 				TargetAttributes = {
 					0438B6FD1E10C0200003FB54 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A8X9HM6ZW7;
 						ProvisioningStyle = Automatic;
 					};
 					0438B7161E10C0210003FB54 = {
@@ -512,7 +513,9 @@
 			baseConfigurationReference = B882D09FA1D036A762AE403F /* Pods-TestMBProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8X9HM6ZW7;
 				INFOPLIST_FILE = TestMBProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fzf.TestMBProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -524,7 +527,9 @@
 			baseConfigurationReference = C86D2D56F3D002E487882741 /* Pods-TestMBProgressHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A8X9HM6ZW7;
 				INFOPLIST_FILE = TestMBProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fzf.TestMBProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";

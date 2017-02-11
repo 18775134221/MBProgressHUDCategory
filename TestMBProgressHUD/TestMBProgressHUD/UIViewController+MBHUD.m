@@ -8,9 +8,7 @@
 
 #import "UIViewController+MBHUD.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "AppDelegate.h"
 
-#define JQAppWindow  [[UIApplication sharedApplication].delegate window]
 static const CGFloat kHudTag = 99999;
 static const CGFloat kProgressHudTag = 88888;
 
@@ -18,61 +16,61 @@ static const CGFloat kProgressHudTag = 88888;
 
 #pragma mark - public Methods
 
-void showStatusHUD(NSString *status,NSString *showImageStr) {
+void showStatusHUD(UIView *contentView,NSString *status,NSString *showImageStr) {
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            showStatusHUD(status, showImageStr);
+            showStatusHUDFunction(contentView,status, showImageStr);
         });
     }else {
-        showStatusHUD(status, showImageStr);
+        showStatusHUDFunction(contentView,status, showImageStr);
     }
 }
 
-void showProgressHUD(NSString *status,CGFloat progress) {
+void showProgressHUD(UIView *contentView,NSString *status,CGFloat progress) {
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            showProgressHUDFunction(status, progress);
+            showProgressHUDFunction(contentView,status, progress);
         });
     }else {
-        showProgressHUDFunction(status, progress);
+        showProgressHUDFunction(contentView,status, progress);
     }
 }
 
-void showToastHUD(NSString *status, NSTimeInterval time) {
+void showToastHUD(UIView *contentView,NSString *status, NSTimeInterval time) {
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            showToastHUD(status, time);
+            showToastHUDFunction(contentView,status, time);
         });
     }else {
-        showToastHUD(status, time);
+        showToastHUDFunction(contentView,status, time);
     }
 }
 
-void showMaskHUD(NSString *status) {
+void showMaskHUD(UIView *contentView,NSString *status) {
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            showMaskHUDFunction(status);
+            showMaskHUDFunction(contentView,status);
         });
     }else {
-        showMaskHUDFunction(status);
+        showMaskHUDFunction(contentView,status);
     }
 }
 
-void hideHUD(){
+void hideHUD(UIView *contentView){
     if (! [NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            hideHUDFunction();
+            hideHUDFunction(contentView);
         });
     }else {
-        hideHUDFunction();
+        hideHUDFunction(contentView);
     }
 }
 
 #pragma mark - private Methods
 
-void showStatusHUDFunction(NSString *status,NSString *showImageStr) {
-    hideHUD();
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:JQAppWindow animated:YES];
+void showStatusHUDFunction(UIView *contentView,NSString *status,NSString *showImageStr) {
+    hideHUD(contentView);
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
     hud.tag = kHudTag;
     UIImage *image = [[UIImage imageNamed:showImageStr] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     hud.customView = [[UIImageView alloc]initWithImage:image];
@@ -83,14 +81,14 @@ void showStatusHUDFunction(NSString *status,NSString *showImageStr) {
     [hud hideAnimated:YES afterDelay:3.0];
 }
 
-void showProgressHUDFunction(NSString *status,CGFloat progress) {
-    if ([JQAppWindow viewWithTag:kHudTag]) {
-        [JQAppWindow viewWithTag:kHudTag].hidden = YES;
-        [[JQAppWindow viewWithTag:kHudTag] removeFromSuperview];
+void showProgressHUDFunction(UIView *contentView,NSString *status,CGFloat progress) {
+    if ([contentView viewWithTag:kHudTag]) {
+        [contentView viewWithTag:kHudTag].hidden = YES;
+        [[contentView viewWithTag:kHudTag] removeFromSuperview];
     }
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:JQAppWindow];
+    MBProgressHUD *hud = [MBProgressHUD HUDForView:contentView];
     if (!hud) {
-        hud = [MBProgressHUD showHUDAddedTo:JQAppWindow animated:NO];
+        hud = [MBProgressHUD showHUDAddedTo:contentView animated:NO];
     }
     hud.tag = kProgressHudTag;
     hud.mode = MBProgressHUDModeDeterminate;
@@ -102,10 +100,10 @@ void showProgressHUDFunction(NSString *status,CGFloat progress) {
     hud.progress = progress;
 }
 
-void showToastHUDFunction(NSString *status, NSTimeInterval time) {
-    hideHUD();
+void showToastHUDFunction(UIView *contentView,NSString *status, NSTimeInterval time) {
+    hideHUD(contentView);
     //显示提示信息;
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:JQAppWindow animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
     hud.tag = kHudTag;
     hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
     hud.userInteractionEnabled = NO;
@@ -117,9 +115,9 @@ void showToastHUDFunction(NSString *status, NSTimeInterval time) {
     [hud hideAnimated:YES afterDelay:time];
 }
 
-void showMaskHUDFunction(NSString *status) {
-    hideHUD();
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:JQAppWindow animated:YES];
+void showMaskHUDFunction(UIView *contentView,NSString *status) {
+    hideHUD(contentView);
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:contentView animated:YES];
     hud.tag = kHudTag;
     hud.bezelView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:1.0];
     hud.contentColor = [UIColor whiteColor];
@@ -129,16 +127,16 @@ void showMaskHUDFunction(NSString *status) {
     [hud showAnimated:YES];
 }
 
-void hideHUDFunction () {
+void hideHUDFunction (UIView *contentView) {
     MBProgressHUD *hud = nil;
-    if ([JQAppWindow viewWithTag:kHudTag]) {
-        hud = [JQAppWindow viewWithTag:kHudTag];
+    if ([contentView viewWithTag:kHudTag]) {
+        hud = [contentView viewWithTag:kHudTag];
         [hud hideAnimated:YES];
     }
-    if ([JQAppWindow viewWithTag:kProgressHudTag]) {
-        hud = [JQAppWindow viewWithTag:kProgressHudTag];
+    if ([contentView viewWithTag:kProgressHudTag]) {
+        hud = [contentView viewWithTag:kProgressHudTag];
         [hud hideAnimated:YES];
     }
-    [MBProgressHUD hideHUDForView:JQAppWindow animated:YES];
+    [MBProgressHUD hideHUDForView:contentView animated:YES];
 }
 @end
